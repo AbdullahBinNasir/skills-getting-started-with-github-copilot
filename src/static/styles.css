@@ -89,9 +89,9 @@ section h3 {
 
 /* Bulleted list reset to match card style */
 .participants ul {
-  list-style: disc;
+  list-style-type: none;
   margin: 0;
-  padding-left: 20px;
+  padding-left: 0;
 }
 
 /* Individual participant row with optional avatar */
@@ -182,4 +182,22 @@ footer {
   margin-top: 30px;
   padding: 20px;
   color: #666;
+}
+
+/* Style for delete icon */
+.delete-icon {
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, #ef5350, #e53935);
+  border: none;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-left: 10px;
+  font-size: 12px;
+  line-height: 1;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.12);
 }
