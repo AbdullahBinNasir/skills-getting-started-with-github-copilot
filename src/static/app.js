@@ -27,6 +27,56 @@ document.addEventListener("DOMContentLoaded", () => {
           <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
         `;
 
+        // Participants section
+        const participantsDiv = document.createElement("div");
+        participantsDiv.className = "participants";
+
+        const participantsHeading = document.createElement("h5");
+        participantsHeading.textContent = "Participants";
+        participantsDiv.appendChild(participantsHeading);
+
+        const ul = document.createElement("ul");
+
+        const participants = Array.isArray(details.participants) ? details.participants : [];
+
+        // Helper to get initials from email/local-part
+        const initialsFromEmail = (email) => {
+          const local = (email || "").split("@")[0] || "";
+          const parts = local.split(/[\._\-]/).filter(Boolean);
+          if (parts.length >= 2 && parts[0] && parts[1]) return (parts[0][0] + parts[1][0]).toUpperCase();
+          return local.slice(0, 2).toUpperCase() || "?" ;
+        };
+
+        if (participants.length === 0) {
+          const li = document.createElement("li");
+          li.className = "participant";
+          const spanName = document.createElement("span");
+          spanName.className = "name";
+          spanName.textContent = "No participants yet";
+          li.appendChild(spanName);
+          ul.appendChild(li);
+        } else {
+          participants.forEach((email) => {
+            const li = document.createElement("li");
+            li.className = "participant";
+
+            const avatar = document.createElement("span");
+            avatar.className = "avatar";
+            avatar.textContent = initialsFromEmail(email);
+
+            const nameSpan = document.createElement("span");
+            nameSpan.className = "name";
+            nameSpan.textContent = email;
+
+            li.appendChild(avatar);
+            li.appendChild(nameSpan);
+            ul.appendChild(li);
+          });
+        }
+
+        participantsDiv.appendChild(ul);
+        activityCard.appendChild(participantsDiv);
+
         activitiesList.appendChild(activityCard);
 
         // Add option to select dropdown

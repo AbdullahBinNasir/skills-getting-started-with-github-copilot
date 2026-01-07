@@ -74,23 +74,64 @@ section h3 {
   margin-bottom: 8px;
 }
 
-.form-group {
-  margin-bottom: 15px;
+/* Participants section inside activity cards */
+.participants {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed #eee;
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+.participants h5 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  color: #1a237e;
 }
 
-.form-group input,
-.form-group select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 16px;
+/* Bulleted list reset to match card style */
+.participants ul {
+  list-style: disc;
+  margin: 0;
+  padding-left: 20px;
+}
+
+/* Individual participant row with optional avatar */
+.participant {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+  color: #333;
+  font-size: 14px;
+}
+
+/* Circular avatar with initials */
+.participant .avatar {
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #42a5f5, #1e88e5);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 13px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Name text */
+.participant .name {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Small screens: keep spacing tight */
+@media (max-width: 520px) {
+  .participant .avatar { width: 26px; height: 26px; font-size: 12px; }
+  .participants h5 { font-size: 13px; }
 }
 
 button {
